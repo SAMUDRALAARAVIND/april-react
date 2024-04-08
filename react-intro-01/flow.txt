@@ -1,0 +1,23 @@
+F2: 
+    Arrays , functions, scope, callback, closures,  DOM
+
+F3: 
+    prototypes, Promises , fetch, async/await, polyfills, oops, Youtube clone, Websockets
+
+F4: 
+    React
+        Basics
+        JSX
+        Components
+        Component life cycle
+        Hooks (useState, useEffect, useImparativeHandle, useRef, useCallback, useMemo)
+        axios
+        antd 
+        react-router-dom 
+        sass
+    Redux
+        Archritectutre (Shopping Cart)
+        middlewares( redux-thunk / saga)
+        reduxjs/toolkit
+    Instagram clone
+
