@@ -1,0 +1,10 @@
+.right-container {
+    padding-top: 100px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    p {
+        line-height: 1.8;
+        font-family: regular;
+        color: #8E9EB9;
+    }
+}

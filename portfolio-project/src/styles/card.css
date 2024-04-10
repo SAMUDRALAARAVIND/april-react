@@ -1,0 +1,36 @@
+.experience-card{
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    gap: 20px;
+    padding: 2rem;
+    border-radius: 10px;
+    .duration {
+        color: #4E5D76;
+    }
+    img {
+        width: 100%;
+        border-radius: 10px;
+    }
+    .right {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .description {
+            font-size: 0.9rem;
+        }
+        .skills {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            .skill {
+                background-color: #132B3E;
+                color: #59E1D1;
+                border-radius: 20px;
+                padding: 5px 10px;
+            }
+        }
+    }
+}
+.experience-card:hover {
+    background-color: #101d40ae;
+}
