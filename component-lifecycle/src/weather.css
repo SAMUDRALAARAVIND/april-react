@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.container{
+    border: 1px solid blue;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    form {
+        display: flex;
+        gap: 20px;
+    }
+    .report {
+        height: 500px;
+        border: 1px solid #e7e7e7;
+        border-radius: 10px;
+        margin-top: 10px;
+        img {
+            width: 100%;
+            height:50%;
+            object-fit: contain;
+        }
+    }
+}
