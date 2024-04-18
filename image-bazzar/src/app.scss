@@ -1,0 +1,115 @@
+/*
+    mixins => CSS Functions
+*/
+
+// @mixin para($width: 100px, $height: 200px) {
+//   width: $width;
+//   height: $height;
+//   padding: 10px;
+//   border: 1px solid blue;
+// }
+
+$boxHeight: 120px;
+
+@mixin flexRow() {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  .search-bar {
+    height: $boxHeight;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #e3e3e3;
+    .inner-container {
+      @include flexRow();
+      width: min(600px, 90vw);
+      input {
+        flex-grow: 1;
+        border: none;
+        padding: 14px;
+        border: 0.6px solid #e3e3e3;
+        border-radius: 20px;
+      }
+      input:focus {
+        outline: none;
+      }
+      button {
+        padding: 10px 20px;
+        border: none;
+        background-color: blue;
+        color: white;
+        font-weight: 500;
+        cursor: pointer;
+        border-radius: 20px;
+      }
+      button:disabled {
+        background-color: gray;
+      }
+    }
+  }
+  .pagination {
+    height: $boxHeight;
+    display: flex;
+    padding: 0 20px;
+    flex-direction: row-reverse;
+    .box {
+      @include flexRow();
+      .material-icons {
+        font-size: 2rem !important;
+      }
+      button {
+        border: none;
+        background-color: transparent;
+      }
+      button:disabled {
+        color: gray;
+      }
+    }
+  }
+  .images-list {
+    overflow-y: scroll;
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px 0;
+    .image-card {
+      height: 300px;
+      border: 1px solid #e3e3e3;
+      padding: 20px;
+      position: relative;
+      border-radius: 10px;
+      .likes {
+        @include flexRow();
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: rgba(0, 0, 0, 0.271);
+        color: white;
+        border-radius: 3px;
+        padding: 5px;
+        font-weight: 500;
+        font-size: 0.8rem;
+      }
+      img {
+        width: 100%;
+        border-radius: 10px;
+        height: 80%;
+        object-fit: cover;
+      }
+      .title {
+        font-weight: 500;
+        font-size: 1.2rem;
+        margin: 10px 0;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+  }
+}
