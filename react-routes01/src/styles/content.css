@@ -1,0 +1,16 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px;
+  .btn-group {
+    display: flex;
+    gap: 20px;
+    button {
+      padding: 10px;
+      border-radius: 40px;
+      border: none;
+    }
+  }
+}

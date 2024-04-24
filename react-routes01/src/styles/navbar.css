@@ -1,0 +1,9 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 10px;
+  input {
+    flex-grow: 1;
+  }
+}
