@@ -1,0 +1,10 @@
+In this Music app clone: 
+ 1. List of Movies.
+ 2. Music Player. (common across all the pages)
+ 3. Add songs to liked songs.
+ 4. likes screen from there user can play the songs again.
+
+
+ / => display all the movies List
+ /movie/:movieId => show all the songs under a movie
+ /liked => show all the liked songs

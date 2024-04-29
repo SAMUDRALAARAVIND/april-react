@@ -1,0 +1,21 @@
+.songs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #121212;
+  .song {
+    display: grid;
+    grid-template-columns: 5fr 1fr 1fr;
+    padding: 10px;
+    border-bottom: 1px solid #e3e3e3;
+    color: #a1a1a1;
+    button {
+      background-color: transparent;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      background-color: #e3e3e3;
+    }
+  }
+}

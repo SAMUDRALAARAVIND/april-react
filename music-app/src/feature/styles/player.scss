@@ -1,0 +1,52 @@
+.player-container {
+  background-color: #000;
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+  .left {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .native-audio {
+    display: none;
+  }
+  .custom-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    .material-icons {
+      color: #fff;
+    }
+    .play-bar {
+      display: flex;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 400px;
+      .bar {
+        flex-grow: 1;
+        height: 4px;
+        border-radius: 2px;
+        background-color: gray;
+        .seek-bar {
+          background-color: #1ed760;
+          height: 100%;
+          width: 60%;
+          border-radius: 2px;
+        }
+      }
+    }
+  }
+  .btn-icon {
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+  }
+}

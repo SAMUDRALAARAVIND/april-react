@@ -1,0 +1,20 @@
+.app-wrapper {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 2fr 10fr 2fr;
+  flex-direction: column;
+  .navbar {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    padding: 10px 20px;
+    background-color: #201640;
+    .material-icons {
+      color: white;
+    }
+  }
+  .outlet-wrapper {
+    overflow-y: scroll;
+  }
+}
