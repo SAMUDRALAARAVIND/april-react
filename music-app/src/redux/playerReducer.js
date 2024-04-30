@@ -1,23 +1,27 @@
+import { actions } from "./actions";
+
 const intialState = {
 
 };
 
 /**
  *  {
- *      songId: 48494,
- *      isPlaying: true | false,
- *      movieId: 4894,
+ *      songId: 38393,
+ *      movieId: 38393,
+ *      songIndex: 3,
+ *      isPlaying: true | false
  *  }
  * 
  */
 
 export const playerReducer = (state = intialState, action) => {
-    if (action.type === "set_song") {
-        const { songId, isPlaying, movieId } = action.payload;
-        return { songId, isPlaying, movieId }
-    }
-    if (action.type === "update_play_status") {
-        return { ...state, isPlaying: action.payload.isPlaying }
+    switch (action.type) {
+        case actions.set_song: {
+            return { ...action.payload, isPlaying: true }
+        }
+        case actions.toggle_play_status: {
+            return { ...state, isPlaying: !state.isPlaying }
+        }
     }
     return state;
 }

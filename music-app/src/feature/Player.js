@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./styles/player.scss";
 import { useDispatch, useSelector } from "react-redux";
+import { actions } from "../redux/actions";
 
 const breakTime = (time) => {
     // time = 121 / 60
@@ -12,28 +13,37 @@ const breakTime = (time) => {
 // 10 
 // width : 10 / 120 * 100 => 100/12
 
+const playerInfoSelector = (state) => {
+    const playerInfo = state.player;
+    // playerInfo : {songId, movieId, isPlaying, songIndex }
+    const movies = state.movies;
+    for (let i = 0; i < movies.length; i++) {
+        if (movies[i].id == playerInfo.movieId) {
+            const songInfo = movies[i].songs.filter(song => song.id === playerInfo.songId)[0];
+            return {
+                title: songInfo.title,
+                fileAddress: songInfo.fileAddress,
+                imageUrl: movies[i].displayPicture,
+                ...playerInfo
+            }
+        }
+    }
+
+    return null;
+}
+
 export const Player = () => {
     const isLiked = false;
-    const playerInfo = useSelector(state => state.player);
+    const playerInfo = useSelector(playerInfoSelector);
     const [totalDuration, setTotalDuration] = useState(0);
     const [seekTime, setSeekTime] = useState(0);
     const dispatch = useDispatch();
-
-    const songDetails = useSelector(state => {
-        const selectedMovie = state.movies.filter(movie => movie.id == playerInfo.movieId)[0];
-        if (selectedMovie) {
-            return { info: selectedMovie.songs.filter(song => song.id == playerInfo.songId)[0], imageUrl: selectedMovie.displayPicture };
-        }
-        return null;
-    });
-
 
     const audioRef = useRef(null);
     const playWidth = (seekTime / totalDuration) * 100 + "%";
 
     const togglePlay = () => {
-        playerInfo.isPlaying ? audioRef.current.pause() : audioRef.current.play();
-        dispatch({ type: "update_play_status", payload: { isPlaying: !playerInfo.isPlaying } })
+        dispatch({ type: actions.toggle_play_status })
     }
 
     const onTimeUpdate = (e) => {
@@ -41,21 +51,30 @@ export const Player = () => {
     }
 
     useEffect(() => {
-        if (audioRef.current) {
-            setTotalDuration(audioRef.current.duration);
+        if (playerInfo?.isPlaying) {
+            audioRef.current?.play();
         }
-    }, []);
+        else {
+            audioRef.current?.pause();
+        }
+    }, [playerInfo?.isPlaying, playerInfo?.songId])
 
-    if (!playerInfo.songId || !songDetails) return null;
+    if (!playerInfo) return null;
 
     return (
         <div className="player-container">
             <div className="left">
-                <img src={songDetails.imageUrl} width={50} />
-                <h3>{songDetails.info.title}</h3>
+                <img src={playerInfo.imageUrl} width={50} />
+                <h3>{playerInfo.title}</h3>
                 <button style={{ color: isLiked ? 'red' : 'white' }} className="material-icons btn-icon">favorite</button>
             </div>
-            <audio ref={audioRef} src={"/" + songDetails.info.fileAddress} onTimeUpdate={onTimeUpdate} controls className="native-audio" />
+            <audio
+                onCanPlayThrough={() => setTotalDuration(audioRef.current.duration)}
+                ref={audioRef} src={"/" + playerInfo.fileAddress}
+                onTimeUpdate={onTimeUpdate}
+                controls
+                className="native-audio"
+            />
 
             <div className="custom-player">
                 <div>
