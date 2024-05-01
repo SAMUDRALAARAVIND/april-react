@@ -1,0 +1,33 @@
+.home-wrapper {
+  width: min(500px, 90vw);
+  margin: auto;
+  padding: 20px;
+  .profile {
+    padding: 10px;
+    box-shadow: 1px 1px 3px #e3e3e3;
+    .items {
+      padding: 20px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      .create-post {
+        border: 2px solid #e3e3e3;
+        background-color: transparent;
+        width: 60px;
+        height: 60px;
+        color: #fff;
+        font-size: 2rem;
+        border-radius: 50%;
+      }
+      .item {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        b {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  .post {
+    padding: 10px;
+    border-bottom: 1px solid #e3e3e3;
+    .title {
+      color: rgb(55, 55, 75);
+    }
+    .content {
+      color: #e3e3e3;
+      font-size: 0.8rem;
+      margin: 10px 0;
+    }
+    .items {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 1rem;
+      .item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+  }
+}
