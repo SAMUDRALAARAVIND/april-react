@@ -4,12 +4,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userInfoSlice from "../post/slices/userInfoSlice";
 import postsSlice from "../post/slices/postsSlice";
+import connectionsSlice from "../connections/redux/connectionsSlice";
 
 // @reduxjs/toolkit + react-redux
 const store = configureStore({
   reducer: {
     user: userInfoSlice.reducer,
-    posts: postsSlice.reducer
+    posts: postsSlice.reducer,
+    connections: connectionsSlice.reducer
   }
 });
 
@@ -22,6 +24,9 @@ const store = configureStore({
     posts: {
       apiStatus: "init", 
       data: []
+    },
+    connections: {
+      
     }
   }
  */

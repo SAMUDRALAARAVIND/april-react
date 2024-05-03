@@ -1,0 +1,35 @@
+.connections-container {
+  .tab {
+    color: #fff;
+  }
+  .ant-tabs-tab-btn {
+    color: #fff;
+  }
+  .ant-empty-description {
+    color: #e3e3e3;
+  }
+  .users-list {
+    display: flex;
+    padding: 2rem;
+    flex-direction: column;
+    width: min(500px, 90vw);
+    border: 1px solid #e3e3e3;
+    margin: auto;
+    gap: 10px;
+    .user {
+      padding: 20px;
+      display: flex;
+      border-bottom: 1px solid #e7e7e7;
+      align-items: center;
+      justify-content: space-between;
+      .btn {
+        padding: 6px 10px;
+        border-radius: 4px;
+        background-color: blue;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+}

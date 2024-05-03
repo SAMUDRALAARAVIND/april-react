@@ -9,9 +9,12 @@ const userInfoSlice = createSlice({
             // action.payload = { apiStatus: "pending", data? }
             state.apiStatus = action.payload.apiStatus;
             state.data = action.payload.data
+        },
+        incrementPostsCount: (state, action) => {
+            state.data.posts += 1;
         }
     }
 });
 
-export const { setUserInfo } = userInfoSlice.actions;
+export const { setUserInfo, incrementPostsCount } = userInfoSlice.actions;
 export default userInfoSlice;
